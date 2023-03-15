@@ -1,0 +1,1 @@
+ALTER TABLE `produk` CHANGE `price` `type` INT NOT NULL, CHANGE `price_sales` `location` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;

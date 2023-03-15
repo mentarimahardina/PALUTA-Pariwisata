@@ -656,9 +656,36 @@ class Fungsi extends Controller
                         $session = session();
 
                         if (count($model->where('name', $_POST['namaproduk'])->findAll()) < 1) {
-
+                                // foreach ($_POST as $key => $item) {
+                                //         if (is_array($item)) {
+                                //                 foreach ($item as $key2 => $item2) {
+                                //                         echo $key . '-' . $key2 . ' :  ' . $item2 . '<br>';
+                                //                 }
+                                //         } else {
+                                //                 echo $key . ' :  ' . $item . '<br>';
+                                //         }
+                                // }
+                                // foreach ($_FILES as $key => $item) {
+                                //         if (is_array($item)) {
+                                //                 foreach ($item as $key2 => $item2) {
+                                //                         echo $key . '-' . $key2 . ' :  ' . $item2 . '<br>';
+                                //                 }
+                                //         } else {
+                                //                 echo $key . ' :  ' . $item . '<br>';
+                                //         }
+                                // }\
+                                $category = '';
+                                $tags = '';
+                                $isCategory = $_POST['category'];
+                                foreach ($isCategory as $check) {
+                                        if ($category != '') {
+                                                $category = $category . ', ' . $check;
+                                        } else {
+                                                $category = $check;
+                                        }
+                                }
                                 $ext = pathinfo($_FILES['produk_images']['name'], PATHINFO_EXTENSION);
-                                $namaFile = md5('produk-' . preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST['namaproduk'])) . '.' . $ext;
+                                $namaFile = md5('wisata-' . preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST['namaproduk'])) . '.' . $ext;
                                 $path = 'Assets/produk/';
                                 list($width, $height) = getimagesize($_FILES['produk_images']['tmp_name']);
                                 if ($width > $height) {
@@ -670,29 +697,29 @@ class Fungsi extends Controller
                                 $data = [
                                         'name' => $_POST['namaproduk'],
                                         'deskripsi' => $_POST['deskripsi'],
-                                        'price' => $_POST['price'],
-                                        'price_sales' => $_POST['price_sales'],
+                                        'type' => $category,
+                                        'location' => $_POST['address'],
                                         'image' => $namaFile,
                                         'created_by' => $session->get('id'),
                                 ];
                                 $model->insert($data);
-                                $session->setFlashdata('true', 'Produk berhasil disimpan');
-                                logs('Produk berhasil disimpan', 1);
+                                $session->setFlashdata('true', 'Wisata berhasil disimpan');
+                                logs('Wisata berhasil disimpan', 1);
 
-                                return redirect()->to(base_url('/product'));
+                                return redirect()->to(base_url('/produk'));
                         } else {
-                                $session->setFlashdata('false', 'Nama Produk sudah ada');
+                                $session->setFlashdata('false', 'Nama Wisata sudah ada');
 
-                                logs('Nama Produk sudah ada', 2);
+                                logs('Nama Wisata sudah ada', 2);
 
-                                return redirect()->to(base_url('/informasi'));
+                                return redirect()->to(base_url('/produk'));
                         }
                 } catch (\Throwable $th) {
                         logs($th, 0);
                 }
         }
 
-        public function editProuk()
+        public function editProduk()
         {
                 try {
 
@@ -704,12 +731,12 @@ class Fungsi extends Controller
                                         $data = [
                                                 'name' => $_POST['namaproduk'],
                                                 'deskripsi' => $_POST['deskripsi'],
-                                                'price' => $_POST['price'],
-                                                'price_sales' => $_POST['price_sales'],
+                                                'type' => $_POST['price'],
+                                                'location' => $_POST['price_sales'],
                                         ];
                                 } else {
                                         $ext = pathinfo($_FILES['editproduk_images']['name'], PATHINFO_EXTENSION);
-                                        $namaFile = md5('produk-' . preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST['namaproduk'])) . '.' . $ext;
+                                        $namaFile = md5('wisata-' . preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST['namaproduk'])) . '.' . $ext;
                                         $path = 'Assets/produk/';
                                         list($width, $height) = getimagesize($_FILES['editproduk_images']['tmp_name']);
                                         if ($width > $height) {
@@ -719,21 +746,21 @@ class Fungsi extends Controller
                                         }
                                         $data = [
                                                 'name' => $_POST['namaproduk'],
-                                                // 'deskripsi' => $_POST['deskripsi'],
-                                                'price' => $_POST['price'],
-                                                'price_sales' => $_POST['price_sales'],
+                                                'deskripsi' => $_POST['deskripsi'],
+                                                'type' => $_POST['price'],
+                                                'location' => $_POST['price_sales'],
                                                 'image' => $namaFile,
                                         ];
                                 }
                                 $model->update($_POST['id'], $data);
-                                $session->setFlashdata('true', 'Produk berhasil di ubah');
-                                logs('Produk berhasil di ubah', 1);
+                                $session->setFlashdata('true', 'Wisata berhasil di ubah');
+                                logs('Wisata berhasil di ubah', 1);
 
-                                return redirect()->to(base_url('/product'));
+                                return redirect()->to(base_url('/produk'));
                         } else {
-                                $session->setFlashdata('false', 'Nama produk sudah ada');
-                                logs('Nama produk sudah ada', 2);
-                                return redirect()->to(base_url('/product'));
+                                $session->setFlashdata('false', 'Nama Wisata sudah ada');
+                                logs('Nama Wisata sudah ada', 2);
+                                return redirect()->to(base_url('/produk'));
                         }
                 } catch (\Throwable $th) {
                         logs($th, 0);

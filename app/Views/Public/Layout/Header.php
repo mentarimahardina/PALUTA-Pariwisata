@@ -99,7 +99,9 @@
             <a href="<?= base_url() ?>">
                 <img height="44" title="Logo" src="<?= base_url('Assets/settings/' . $setting_logo) ?>">
                 <h6>
-                    <h5><?= $setting_title ?></h5>
+                    <h5>
+                        <?= $setting_title ?>
+                    </h5>
                     <?= $setting_subtitle ?>
                 </h6>
             </a>
@@ -136,7 +138,8 @@
             foreach ($menus as $key => $item) { ?>
                 <li class="menu-item hidden <?= $item['menu_title'] == $page ? 'active' : '' ?> dropdown"
                     <?= $item['menu_parent_id'] != 0 ? 'hidden' : '' ?>>
-                    <a href="<?= $item['menu_url'] ?>" target="<?= $item['menu_target'] ?>" class="dropbtn">
+                    <a href="<?= $item['menu_target'] != '_parent' ? $item['menu_url'] : '' ?>"
+                        target="<?= $item['menu_target'] ?>" class="dropbtn">
                         <?= strtoupper($item['menu_title']) ?>
                     </a>
                     <div class="dropdown-content">
@@ -144,7 +147,8 @@
                         for ($i = 0; $i < count($menus); $i++) {
                             ?>
                             <?php if ($item['id'] == $menus[$i]['menu_parent_id']) { ?>
-                                <a class="submenu" href="<?= $menus[$i]['menu_url'] ?>"> <?= $menus[$i]['menu_title'] ?></a>
+                                <a class="submenu" href="<?= $menus[$i]['menu_url'] ?>" target="<?= $menus[$i]['menu_target'] ?>">
+                                    <?= $menus[$i]['menu_title'] ?></a>
                                 <?php
                             }
                         } ?>

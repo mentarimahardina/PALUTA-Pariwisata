@@ -16,8 +16,6 @@ use App\Models\ModelSetting;
 use App\Models\ModelUsers;
 use CodeIgniter\Controller;
 
-use function PHPSTORM_META\type;
-
 function settingValues($cari)
 {
     $model = new ModelSetting();
@@ -250,10 +248,10 @@ class Page extends Controller
         }
     }
 
-    public function produk()
+    public function wisata()
     {
         try {
-            $data = sessions('Produk');
+            $data = sessions('Wisata');
             if ($data == null) {
                 out();
                 return redirect()->to('/login');

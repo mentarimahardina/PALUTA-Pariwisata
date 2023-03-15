@@ -137,7 +137,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Produk</h4> <button type="button" class="close" data-dismiss="modal"
+                <h4 class="modal-title">Tambah Wisata</h4> <button type="button" class="close" data-dismiss="modal"
                     aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <form action="createProduk" method="post" enctype="multipart/form-data">
@@ -154,14 +154,22 @@
                             </div>
                         </div>
                         <div class="col-md-8">
-                        <div class="mb-3"> <label class="form-label">Nama Produk</label> <input type="text" required
+                        <div class="mb-3"> <label class="form-label">Nama Wisata</label> <input type="text" required
                                     name="namaproduk" class="form-control form-control-user"> </div>
-                            <div class="mb-3"> <label class="form-label">Harga Produk</label> <input type="text"
-                                    required name="price" class="form-control form-control-user"> </div>
-                            <div class="mb-3"> <label class="form-label">Harga Diskon</label> <input type="text"
-                                    name="price_sales" class="form-control form-control-user"> </div>
+                                    <div class="mb-3"> <label class="form-label">Tipe Wisata</label>
+                                <div class="row"> <input class="form-check-input" type="checkbox" value="" name="category[]" checked hidden> <?php foreach ($mcategories as $key => $item) {
+                                    if ($item['category_type'] == 'product') { ?> 
+                                            <div class="col-md-4">
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="<?= $item['id'] ?>" name="category[]"> <label class="form-check-label" for="<?= $item['id']; ?>"> <?= $item['category_description']; ?> </label> </div>
+                                                </div> <?php }
+                                } ?> </div>
+                            </div>
+                            <div class="mb-3"> <label class="form-label">Lokasi Wisata</label> <input type="text"
+                                    required name="address" class="form-control form-control-user"> </div>
+                            
                         </div>
-                        <div class="mb-3 w-100 px-2"> <label class="form-label">Deskripsi Produk</label> 
+                        <div class="mb-3 w-100 px-2"> <label class="form-label">Deskripsi Wisata</label> 
                         <textarea rows="4" id="produk_deskripsi" name="deskripsi" class="form-control form-control-user w-100"></textarea>
                     </div>
                     </div>
@@ -174,11 +182,11 @@
     </div>
 </div>
 <div class="modal fade" id="produk-info">
-    <div class="modal-dialog">
-    <!-- <div class="modal-dialog modal-lg"> -->
+    <!-- <div class="modal-dialog"> -->
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h4 class="modal-title">Detail Produk</h4> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+            <h4 class="modal-title">Detail</h4> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <div class="modal-body"> 
                 <img id="infoproduk_image" style="width:100%">
@@ -187,8 +195,8 @@
                 
                 <div class="row" style="margin-bottom:1vh">
                     <div class="col-md-3">Nama</div>:<div class="col-md-8"><span id="infoproduk_name"></span></div>
-                                        <div class="col-md-3">Harga</div>:<div class="col-md-8"><span id="infoproduk_price"></span></div>
-                    <div class="col-md-3">Harga Diskon</div>:<div class="col-md-8"><span id="infoproduk_pricesales"></span></div>
+                                        <div class="col-md-3">Tipe Wisata</div>:<div class="col-md-8"><span id="infoproduk_price"></span></div>
+                    <div class="col-md-3">Alamat</div>:<div class="col-md-8"><span id="infoproduk_pricesales"></span></div>
                     <div class="col-md-3">Rating</div>:<div class="col-md-8"><span id="infoproduk_rating"></span></div>
                 </div>
                 <h6>Deskripsi :</h6>
@@ -206,12 +214,12 @@
 
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Ubah Produk</h4> 
+                <h4 class="modal-title">Ubah Wisata</h4> 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
                     <span aria-hidden="true">&times;</span> 
                 </button>
             </div>
-            <form action="editProuk" method="post" enctype="multipart/form-data">
+            <form action="editProduk" method="post" enctype="multipart/form-data">
                 <div class="modal-body"> 
                     <input name="id" id="editproduk_id" hidden>  
                     <div class="row">
@@ -228,22 +236,38 @@
                         </div>
                         <div class="col-md-8">
                         <div class="mb-3"> 
-                                <label class="form-label">Nama Produk</label> 
+                                <label class="form-label">Nama Wisata</label> 
                                 <input type="text" required id="editproduk_name" name="namaproduk" class="form-control form-control-user"> 
                             </div>
                            
-                            <div class="mb-3"> 
-                                <label class="form-label">Harga Produk</label> 
+                            <div class="mb-3" hidden> 
+                                <label class="form-label">Tipe Wisata</label> 
                                 <input type="text" required id="editproduk_price" name="price" class="form-control form-control-user"> 
                             </div>
+                            <div class="mb-3"> <label class="form-label">Tipe Wisata</label>
+                                <div class="row"> 
+                                    <!-- <input class="form-check-input" type="checkbox" value="" name="category[]" checked > -->
+                                 <?php foreach ($mcategories as $key => $item) {
+                                    if ($item['category_type'] == 'product') { ?> 
+                                    <div class="col-md-4">
+                                        <div class="form-check"> 
+                                            <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="editproduk_categories" name="category[]"> 
+                                            <label class="form-check-label" for="editproduk_categories"> <?= $item['category_name']; ?> </label> 
+                                        </div>
+                                    </div> 
+                                    <?php }
+                                } ?> 
+                                </div>
+                            </div>
                             <div class="mb-3"> 
-                                <label class="form-label">Harga Diskon</label> 
+                                <label class="form-label">Alamat</label> 
                                 <input type="text" id="editproduk_pricesales" name="price_sales" class="form-control form-control-user"> 
                             </div>
                         </div>
+                        
                     </div>
                     <div class="mb-3"> 
-                        <label class="form-label">Deskripsi Produk</label> 
+                        <label class="form-label">Deskripsi</label> 
                         <textarea rows="5" id="editproduk_deskripsi" name="deskripsi" class="form-control form-control-user"></textarea>
                     </div>
                 </div>
@@ -283,16 +307,16 @@
                             <div class="mb-3"> <label class="form-label">Judul</label> <input type="text" required name="title" class="form-control form-control-user"> </div>
                             <div class="mb-3"> <label class="form-label" id="tag">Tag</label>
                                 <div class="row"> <input class="form-check-input" type="checkbox" value="" name="tag[]" checked hidden> <?php foreach ($mtags as $key => $item) { ?> <div class="col-md-4">
-                                                                                                                                                                                                                <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['slug']; ?>" id="<?= $item['id'] ?>" name="tag[]"> <label class="form-check-label" for="beritaeditpost_tags"> <?= $item['tag']; ?> </label> </div>
-                                                                                                                                                                                                            </div> <?php } ?> </div>
+                                                                                                                                                                                                                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['slug']; ?>" id="<?= $item['id'] ?>" name="tag[]"> <label class="form-check-label" for="beritaeditpost_tags"> <?= $item['tag']; ?> </label> </div>
+                                                                                                                                                                                                                </div> <?php } ?> </div>
                             </div>
                             <div class="mb-3"> <label class="form-label">Kategori</label>
                                 <div class="row"> <input class="form-check-input" type="checkbox" value="" name="category[]" checked hidden> <?php foreach ($mcategories as $key => $item) {
                                     if ($item['category_type'] == 'post') { ?> 
-                                    <div class="col-md-4">
-                                        <div class="form-check"> 
-                                            <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="<?= $item['id'] ?>" name="category[]"> <label class="form-check-label" for="<?= $item['id']; ?>"> <?= $item['category_name']; ?> </label> </div>
-                                        </div> <?php }
+                                            <div class="col-md-4">
+                                                <div class="form-check"> 
+                                                    <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="<?= $item['id'] ?>" name="category[]"> <label class="form-check-label" for="<?= $item['id']; ?>"> <?= $item['category_name']; ?> </label> </div>
+                                                </div> <?php }
                                 } ?> </div>
                             </div>
                         </div>
@@ -367,14 +391,14 @@
                             <div class="mb-3"> <label class="form-label">Judul</label> <input type="text" required id="beritaeditpost_title" name="title" class="form-control form-control-user"> </div>
                             <div class="mb-3"> <label class="form-label">Tag</label>
                                 <div class="row"> <input class="form-check-input" type="checkbox" value="" name="tag[]" checked hidden> <?php foreach ($mtags as $key => $item) { ?> <div class="col-md-4">
-                                                                                                                                                                                                                <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['slug']; ?>" id="beritaeditpost_tags" name="tag[]"> <label class="form-check-label" for="beritaeditpost_tags"> <?= $item['tag']; ?> </label> </div>
-                                                                                                                                                                                                            </div> <?php } ?> </div>
+                                                                                                                                                                                                                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['slug']; ?>" id="beritaeditpost_tags" name="tag[]"> <label class="form-check-label" for="beritaeditpost_tags"> <?= $item['tag']; ?> </label> </div>
+                                                                                                                                                                                                                </div> <?php } ?> </div>
                             </div>
                             <div class="mb-3"> <label class="form-label">Kategori</label>
                                 <div class="row"> <input class="form-check-input" type="checkbox" value="" name="category[]" checked hidden> <?php foreach ($mcategories as $key => $item) {
                                     if ($item['category_type'] == 'post') { ?> <div class="col-md-4">
-                                                                                                                                                                                                                                                                                                                                                                                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="beritaeditpost_categories" name="category[]"> <label class="form-check-label" for="beritaeditpost_categories"> <?= $item['category_name']; ?> </label> </div>
-                                                                                                                                                                                                                                                                                                                                                                                    </div> <?php }
+                                                                                                                                                                                                                                                                                                                                                                                                <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="beritaeditpost_categories" name="category[]"> <label class="form-check-label" for="beritaeditpost_categories"> <?= $item['category_name']; ?> </label> </div>
+                                                                                                                                                                                                                                                                                                                                                                                            </div> <?php }
                                 } ?> </div>
                             </div>
                         </div>
@@ -445,14 +469,14 @@
                             <div class="mb-3"> <label class="form-label">Judul</label> <input type="text" required name="title" class="form-control form-control-user"> </div>
                             <div class="mb-3"> <label class="form-label" id="tag">Tag</label>
                                 <div class="row"> <input class="form-check-input" type="checkbox" value="" name="tag[]" checked hidden> <?php foreach ($mtags as $key => $item) { ?> <div class="col-md-4">
-                                                                                                                                                                                                                <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['slug']; ?>" id="<?= $item['id'] ?>" name="tag[]"> <label class="form-check-label" for="eventseditpost_tags"> <?= $item['tag']; ?> </label> </div>
-                                                                                                                                                                                                            </div> <?php } ?> </div>
+                                                                                                                                                                                                                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['slug']; ?>" id="<?= $item['id'] ?>" name="tag[]"> <label class="form-check-label" for="eventseditpost_tags"> <?= $item['tag']; ?> </label> </div>
+                                                                                                                                                                                                                </div> <?php } ?> </div>
                             </div>
                             <div class="mb-3"> <label class="form-label">Kategori</label>
                                 <div class="row"> <input class="form-check-input" type="checkbox" value="" name="category[]" checked hidden> <?php foreach ($mcategories as $key => $item) {
                                     if ($item['category_type'] == 'post') { ?> <div class="col-md-4">
-                                                                                                                                                                                                                                                                                                                                                                                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="<?= $item['id'] ?>" name="category[]"> <label class="form-check-label" for="<?= $item['id']; ?>"> <?= $item['category_name']; ?> </label> </div>
-                                                                                                                                                                                                                                                                                                                                                                                    </div> <?php }
+                                                                                                                                                                                                                                                                                                                                                                                                <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="<?= $item['id'] ?>" name="category[]"> <label class="form-check-label" for="<?= $item['id']; ?>"> <?= $item['category_name']; ?> </label> </div>
+                                                                                                                                                                                                                                                                                                                                                                                            </div> <?php }
                                 } ?> </div>
                             </div>
                         </div>
@@ -531,14 +555,14 @@
                             <div class="mb-3"> <label class="form-label">Judul</label> <input type="text" required id="eventseditpost_title" name="title" class="form-control form-control-user"> </div>
                             <div class="mb-3"> <label class="form-label">Tag</label>
                                 <div class="row"> <input class="form-check-input" type="checkbox" value="" name="tag[]" checked hidden> <?php foreach ($mtags as $key => $item) { ?> <div class="col-md-4">
-                                                                                                                                                                                                                <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['slug']; ?>" id="eventseditpost_tags" name="tag[]"> <label class="form-check-label" for="eventseditpost_tags"> <?= $item['tag']; ?> </label> </div>
-                                                                                                                                                                                                            </div> <?php } ?> </div>
+                                                                                                                                                                                                                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['slug']; ?>" id="eventseditpost_tags" name="tag[]"> <label class="form-check-label" for="eventseditpost_tags"> <?= $item['tag']; ?> </label> </div>
+                                                                                                                                                                                                                </div> <?php } ?> </div>
                             </div>
                             <div class="mb-3"> <label class="form-label">Kategori</label>
                                 <div class="row"> <input class="form-check-input" type="checkbox" value="" name="category[]" checked hidden> <?php foreach ($mcategories as $key => $item) {
                                     if ($item['category_type'] == 'post') { ?> <div class="col-md-4">
-                                                                                                                                                                                                                                                                                                                                                                                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="eventseditpost_categories" name="category[]"> <label class="form-check-label" for="eventseditpost_categories"> <?= $item['category_name']; ?> </label> </div>
-                                                                                                                                                                                                                                                                                                                                                                                    </div> <?php }
+                                                                                                                                                                                                                                                                                                                                                                                                <div class="form-check"> <input class="form-check-input" type="checkbox" value="<?= $item['category_slug']; ?>" id="eventseditpost_categories" name="category[]"> <label class="form-check-label" for="eventseditpost_categories"> <?= $item['category_name']; ?> </label> </div>
+                                                                                                                                                                                                                                                                                                                                                                                            </div> <?php }
                                 } ?> </div>
                             </div>
                         </div>
@@ -902,9 +926,9 @@
                         <label class="form-label">Atasan</label>
                         <select class="form-control form-control-user" id="editstaffatasan" name="atasan">
                             <?php foreach ($atasan as $key => $item) { ?>
-                                                                                                                                                                                                    <option value=<?= $item['id_org']; ?>>
-                                                                                                                                                                                                        <?= $item['description'] . ' : ' . $item['full_name']; ?>
-                                                                                                                                                                                                    </option>
+                                                                                                                                                                                                        <option value=<?= $item['id_org']; ?>>
+                                                                                                                                                                                                            <?= $item['description'] . ' : ' . $item['full_name']; ?>
+                                                                                                                                                                                                        </option>
                             <?php } ?>
                         </select>
                     </div>

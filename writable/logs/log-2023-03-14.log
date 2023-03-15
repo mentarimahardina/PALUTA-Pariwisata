@@ -1,0 +1,121 @@
+CRITICAL - 2023-03-14 02:01:46 --> syntax error, unexpected token "\"
+in APPPATH\Controllers\Fungsi.php on line 677.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Fungsi.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Fungsi')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Fungsi')
+ 4 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\Fungsi', true)
+ 5 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 02:02:19 --> Undefined variable $title
+in APPPATH\Views\errors\html\error_exception.php on line 8.
+ 1 APPPATH\Views\errors\html\error_exception.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'APPPATH\\Views\\errors\\html\\error_exception.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\errors\\html\\error_exception.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('errors/html/error_exception', [], true)
+ 5 APPPATH\Controllers\Fungsi.php(122): view('errors/html/error_exception')
+ 6 APPPATH\Controllers\Fungsi.php(718): App\Controllers\logs(Object(ErrorException), 0)
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Fungsi->createProduk()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Fungsi))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 02:07:49 --> Undefined variable $title
+in APPPATH\Views\errors\html\error_exception.php on line 8.
+ 1 APPPATH\Views\errors\html\error_exception.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'APPPATH\\Views\\errors\\html\\error_exception.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\errors\\html\\error_exception.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('errors/html/error_exception', [], true)
+ 5 APPPATH\Controllers\Fungsi.php(122): view('errors/html/error_exception')
+ 6 APPPATH\Controllers\Fungsi.php(718): App\Controllers\logs(Object(ErrorException), 0)
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Fungsi->createProduk()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Fungsi))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 02:09:19 --> Undefined variable $title
+in APPPATH\Views\errors\html\error_exception.php on line 8.
+ 1 APPPATH\Views\errors\html\error_exception.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'APPPATH\\Views\\errors\\html\\error_exception.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\errors\\html\\error_exception.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('errors/html/error_exception', [], true)
+ 5 APPPATH\Controllers\Page.php(74): view('errors/html/error_exception')
+ 6 APPPATH\Controllers\Page.php(265): App\Controllers\logsm(Object(ErrorException))
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Page->wisata()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 09:46:27 --> Undefined variable $title
+in APPPATH\Views\errors\html\error_exception.php on line 8.
+ 1 APPPATH\Views\errors\html\error_exception.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'APPPATH\\Views\\errors\\html\\error_exception.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\errors\\html\\error_exception.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('errors/html/error_exception', [], true)
+ 5 APPPATH\Controllers\Page.php(74): view('errors/html/error_exception')
+ 6 APPPATH\Controllers\Page.php(265): App\Controllers\logsm(Object(ErrorException))
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Page->wisata()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 18:24:26 --> Undefined array key "price"
+in APPPATH\Views\Public\HomePage.php on line 145.
+ 1 APPPATH\Views\Public\HomePage.php(145): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "price"', 'APPPATH\\Views\\Public\\HomePage.php', 145)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Public\\HomePage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('Public/HomePage', [], true)
+ 5 APPPATH\Controllers\Publics.php(64): view('Public/HomePage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Publics->index()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Publics))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2023-03-14 22:27:43 --> Unknown column 'post_type' in 'where clause'
+CRITICAL - 2023-03-14 22:27:43 --> Unknown column 'post_type' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `produk`
+WHERE `post_type` = \'post\'
+AND `post_status` = \'publish\'
+ORDER BY `created_at` ASC
+ LIMIT 5', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `produk`
+WHERE `post_type` = \'post\'
+AND `post_status` = \'publish\'
+ORDER BY `created_at` ASC
+ LIMIT 5')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `produk`
+WHERE `post_type` = \'post\'
+AND `post_status` = \'publish\'
+ORDER BY `created_at` ASC
+ LIMIT 5')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `produk`
+WHERE `post_type` = :post_type:
+AND `post_status` = :post_status:
+ORDER BY `created_at` ASC
+ LIMIT 5', [...], false)
+ 5 SYSTEMPATH\Model.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(5, 0)
+ 7 APPPATH\Views\Public\Wisata.php(94): CodeIgniter\BaseModel->findAll(5)
+ 8 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Public\\Wisata.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('Public/wisata', [], true)
+11 APPPATH\Controllers\Publics.php(153): view('Public/wisata', [...])
+12 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Publics->wisata('kuliner')
+13 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Publics))
+14 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 22:32:07 --> Undefined array key "price"
+in APPPATH\Controllers\Publics.php on line 166.
+ 1 APPPATH\Controllers\Publics.php(166): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "price"', 'APPPATH\\Controllers\\Publics.php', 166)
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Publics->detailwisata('Candi Bahal')
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Publics))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

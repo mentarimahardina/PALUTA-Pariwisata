@@ -248,6 +248,7 @@
             var price = $(this).data('price');
             var pricesales = $(this).data('pricesales');
             var rating = $(this).data('rating');
+            var post_categories = $(this).data('price').split(', ');
             var deskripsi = $(this).data('deskripsi');
             var images = $(this).data('image');
             var image = images != '' ? 'Assets/produk/' + images : '';
@@ -257,13 +258,16 @@
 
             $('#editproduk_id').val(id);
             $('#editproduk_name').val(name);
-            $('#editproduk_price').val(price);
+            $('#editproduk_price').val(post_categories);
             $('#editproduk_pricesales').val(pricesales);
             $('#editproduk_rating').val(rating);
             $('#editproduk_deskripsi').summernote('code', deskripsi);
             $('#editproduk_imageslama').val(images);
             $('#editproduk_image').attr('src', image);
             $('#editproduk_images').val(images);
+            for (var i = 0; i < post_categories.length; i++) {
+                $('#editproduk_categories[value="' + post_categories[i] + '"]').prop('checked', 'checked');
+            }
         })
 
         $(document).on('click', '#produkdel', function () {

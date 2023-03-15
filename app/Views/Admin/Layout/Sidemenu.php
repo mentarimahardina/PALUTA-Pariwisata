@@ -26,12 +26,6 @@
     <div class="sidebar">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- <li class="nav-item">
-                    <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p> Dashboard</p>
-                    </a>
-                </li> -->
                 <li class="nav-item">
                     <a href="<?= base_url() ?>" class="nav-link">
                         <i class="nav-icon fas fa-rocket"></i>
@@ -60,24 +54,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('/product') ?>"
-                        class="nav-link <?php if ($page == 'Produk') { ?> active<?php } ?>">
-                        <i class="nav-icon fas fa-box"></i>
-                        <p>Produk </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('/slider') ?>"
-                        class="nav-link <?php if ($page == 'Slider') { ?> active<?php } ?>">
-                        <i class="nav-icon fas fa-sliders-h"></i>
-                        <p>Slider</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('/news') ?>"
-                        class="nav-link <?php if ($page == 'Berita') { ?> active<?php } ?>">
-                        <i class="nav-icon fas fa-newspaper"></i>
-                        <p>Berita</p>
+                    <a href="<?= base_url('/produk') ?>"
+                        class="nav-link <?php if ($page == 'Wisata') { ?> active<?php } ?>">
+                        <i class="nav-icon fas fa-gopuram"></i>
+                        <p>Wisata </p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -85,6 +65,21 @@
                         class="nav-link <?php if ($page == 'Event') { ?> active<?php } ?>">
                         <i class="nav-icon fas fa-calendar"></i>
                         <p>Event</p>
+                    </a>
+                </li>   
+                <li class="nav-item">
+                    <a href="<?= base_url('/news') ?>"
+                        class="nav-link <?php if ($page == 'Berita') { ?> active<?php } ?>">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>Berita</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="<?= base_url('/slider') ?>"
+                        class="nav-link <?php if ($page == 'Slider') { ?> active<?php } ?>">
+                        <i class="nav-icon fas fa-sliders-h"></i>
+                        <p>Slider</p>
                     </a>
                 </li>
                 <li class="nav-item">

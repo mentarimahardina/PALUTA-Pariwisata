@@ -143,13 +143,17 @@ class Publics extends Controller
         }
     }
 
-    public function produk()
+    public function wisata($type)
     {
-        $data = main('Produk');
-        return view('Public/produk', $data);
+        $data = main('Wisata');
+        $model4 = new ModelProduk();
+        $data['type']=$type;
+        $data['produk'] = $model4->where('type', $type)->orderBy('created_at', 'DESC')->findAll();
+
+        return view('Public/wisata', $data);
     }
 
-    public function detailproduk($id)
+    public function detailwisata($id)
     {
         $menu = new ModelMenus();
         $produk = new ModelProduk();
@@ -159,12 +163,12 @@ class Publics extends Controller
             $modelUser = new ModelUsers();
 
             $new = ($model->where('name', $id)->findAll())[0];
-            $data['harga'] = $new['price'];
+            $data['harga'] = $new['type'];
             $author = $modelUser->where('id', $new['created_by'])->findAll();
             $data['created'] = date('d M Y H:i:s', strtotime($new['created_at']));
             $data['author'] = $author[0]['user_full_name'];
             $data['title'] = $new['name'];
-            //     $data['tags'] = $new['post_tags'];
+            
             $data['image'] = $new['image'];
             $data['content'] = $new['deskripsi'];
             return view('Public/DetailProduk', $data);

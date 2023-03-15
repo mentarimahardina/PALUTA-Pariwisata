@@ -43,15 +43,15 @@ $routes->get('profil', 'Publics::profil');
 $routes->get('program', 'Publics::program');
 $routes->get('berita', 'Publics::berita');
 $routes->get('berita/(:any)', 'Publics::detailberita/$1');
-$routes->get('produk/(:any)', 'Publics::detailproduk/$1');
+$routes->get('wisata/(:any)', 'Publics::detailwisata/$1');
 $routes->get('/galeri', 'Publics::galeri');
-$routes->get('/produk', 'Publics::produk');
+$routes->get('/wisata-(:any)', 'Publics::wisata/$1');
 $routes->get('/unduh', 'Publics::unduh');
 $routes->get('/event', 'Publics::event');
 
 
 $routes->get('/dashboard', 'Page::index');
-$routes->get('/product', 'Page::produk');
+$routes->get('/produk', 'Page::wisata');
 $routes->get('/pengguna', 'Page::pengguna');
 $routes->get('/news', 'Page::news');
 $routes->get('/events', 'Page::events');
@@ -84,7 +84,7 @@ $routes->post('editEvents', 'Fungsi::editEvents');
 $routes->post('delEvents', 'Fungsi::delEvents');
 
 $routes->post('createProduk', 'Fungsi::createProduk');
-$routes->post('editProuk', 'Fungsi::editProuk');
+$routes->post('editProduk', 'Fungsi::editProduk');
 $routes->post('delProduk', 'Fungsi::delProduk');
 
 $routes->post('settingWeb', 'Fungsi::settingWeb');

@@ -116,50 +116,32 @@
     <div class="title m-2">
         <h3>EVENT</h3>
     </div>
-    <div class="row w-80">
+    <div class="row w-90">
         <?php for ($i = 0; $i < (count($produk)>=4?4:count($produk)); $i++) { ?>
-            <div class="col-md-3 p-2">
+            <div class="col-md-4 p-2">
                 <div class="card content-img">
                     <div class="card-img">
                         <img src="<?= $produk[$i]['image'] != '' ? 'Assets/produk/' . $produk[$i]['image'] : 'https://via.placeholder.com/250/b9acac/FFFFFF?text=Kosong' ?>"
                             style="height:18em;width:100%">
                     </div>
-                    <div class="post-content p-2 center">
-                        <h6>
-                            <?php
-                            $konten = strip_tags($produk[$i]['name']);
-                            $long = 50;
-                            $link = base_url();
-                            if (strlen($konten) > $long) {
-                                $potongkonten = substr($konten, 0, $long);
-                                $akhirspasi = strrpos($potongkonten, ' ');
-                                $konten = $akhirspasi ? substr($potongkonten, 0, $akhirspasi) : substr($potongkonten, 0);
-                            }
-                            echo $konten . '...';
-
-                            ?>
-                        </h6>
-                        <div class="row  pt-3">
-                            <div class="col-md-6">
-                                <h6 class="text-left ">
-                                    <?= $produk[$i]['price'] ?>
-                                </h6>
-                            </div>
-                            <div class="col-md-6">
-                                <!-- <a class="btn btn-success"
-                                                                    href="<?= base_url('produk/' . $produk[$i]['name']) ?>" ?><i class="fa fa-whatsapp"></i>
-                                                                    Det</a> -->
-                            </div>
-                        </div>
+                    <div class="post-content p-1 center">
+                      
+                        <h5 class="text-left ">
+                                    <?= $produk[$i]['name'] ?>
+                                </h5>
+                                <p >
+                                    <?= $produk[$i]['location'] ?>
+                        </p>
+                   
 
                     </div>
 
-                    <a href="<?= base_url('produk/' . $produk[$i]['name']) ?>" ?>
+                    <!-- <a href="<?= base_url('produk/' . $produk[$i]['name']) ?>" ?>
                         <div class="card-footer p-2 center" id="button-produk">
                             <i class="fa fa-link"></i> Detail Produk
                         </div>
 
-                    </a>
+                    </a> -->
                 </div>
             </div>
 
