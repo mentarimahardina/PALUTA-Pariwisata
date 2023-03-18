@@ -778,8 +778,8 @@ class Fungsi extends Controller
                                         unlink($_POST['img']);
                                 }
                         }
-                        $session->setFlashdata('false', 'Produk sudah ada');
-                        logs('Produk sudah ada', 2);
+                        $session->setFlashdata('false', 'Wisata sudah dihapus');
+                        logs('Wisata sudah dihapus', 2);
                         return redirect()->to(base_url('/product'));
                 } catch (\Throwable $th) {
                         logs($th, 0);
